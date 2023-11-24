@@ -1,0 +1,71 @@
+#include <stdio.h>
+
+int main() {
+    int numeros[5];
+    int somapares = 0;
+    int quantImpares = 0;
+    int quantNegativos = 0;
+
+    for (int i = 0; i < 5; ++i) {
+        printf("INFORME 5 NUMEROS INTEIROS: ", i + 1);
+        scanf("%d", &numeros[i]);
+
+        if (numeros[i] % 2 != 0) {
+            quantImpares++;
+        }
+        
+        if (numeros[i] < 0) {
+            quantNegativos++;
+        }
+    
+        if (numeros[i] % 2 == 0) {
+            somapares += numeros[i];
+        }
+    }
+
+  
+    int maiorNUM = numeros[0];
+    int menorNUM = numeros[0];
+
+    for (int i = 1; i < 5; ++i) {
+        if (numeros[i] > maiorNUM) {
+            maiorNUM = numeros[i];
+        }
+
+        if (numeros[i] < menorNUM) {
+            menorNUM = numeros[i];
+        }
+    }
+
+  
+    int quantpares = 0;
+    float mediapares = 0.0;
+
+    for (int i = 0; i < 5; ++i) {
+        if (numeros[i] % 2 == 0) {
+            quantpares++;
+            mediapares += numeros[i];
+        }
+    }
+
+    mediapares = (quantpares > 0) ? (mediapares / quantpares) : 0;
+
+   
+    float mediageral = 0.0;
+
+    for (int i = 0; i < 5; ++i) {
+        mediageral += numeros[i];
+    }
+
+    mediageral /= 5;
+
+    
+    printf("\nQUANTIDADE DE NUMEROS ÍMPARES: %d\n", quantImpares);
+    printf("QUANTIDADE DE NUMEROS NEGATIVOS: %d\n", quantNegativos);
+    printf("MAIOR NUMERO: %d\n", maiorNUM);
+    printf("MENOR NUMERO: %d\n", menorNUM);
+    printf("MEDIA DE NUMEROS PARES: %.2f\n", mediapares);
+    printf("MEDIA DE NUMEROS INSERIDOS: %.2f\n", mediageral);
+
+    return 0;
+}
