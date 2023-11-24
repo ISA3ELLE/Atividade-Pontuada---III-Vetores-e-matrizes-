@@ -1,0 +1,44 @@
+int main() {
+    char nome[5][200];
+    float notas[5][3];  
+    float media[5];
+    int idade[5];  
+    int i, j;  
+    float somanotas; 
+
+    for (i = 0; i < 5; i++) {
+        printf("INFORME O SEU NOME: ", i + 1);
+        scanf("%s", nome[i]);
+
+        printf("INFORME SUA IDADE DE %s: ", nome[i]);  
+        scanf("%d", &idade[i]);
+
+        printf("INFORME SUAS NOTAS: ", nome[i]);
+       
+        for (j = 0; j < 3; j++) {
+            scanf("%f", &notas[i][j]);
+            somanotas += notas[i][j];
+            somanotas = 0; 
+        }
+        media[i] = somanotas / 3;
+    }
+
+    printf("\nExibindo dados do aluno... \n");
+
+    for (i = 0; i < 5; i++) {
+        printf("\nNome do aluno: %s \n", nome[i]);
+        printf("Idade: %d \n", idade[i]);
+        printf("Notas: %.1f, %.1f, %.1f \n", notas[i][0], notas[i][1], notas[i][2]);
+        printf("Média: %.2f \n", media[i]);
+
+        if (media[i] >= 7) {
+            printf("APROVADO(A)\n");
+        } else if (media[i] < 7 && media[i] >= 5) {
+            printf("ALUNO(A) EM RECUPERAÇÃO\n");
+        } else {
+            printf("ALUNO(A) REPROVADO(A)\n");
+        }
+    }
+
+    return 0;
+}
