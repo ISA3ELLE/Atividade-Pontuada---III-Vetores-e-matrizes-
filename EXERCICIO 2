@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int main() {
     char nome[5][200];
     float notas[5][3];  
@@ -7,18 +9,18 @@ int main() {
     float somanotas; 
 
     for (i = 0; i < 5; i++) {
-        printf("INFORME O SEU NOME: ", i + 1);
+        printf("INFORME O NOME DO ALUNO(A): ", i + 1);
         scanf("%s", nome[i]);
 
-        printf("INFORME SUA IDADE DE %s: ", nome[i]);  
+        printf("INFORME A IDADE DO ALUNO(A): ", nome[i]);  
         scanf("%d", &idade[i]);
 
-        printf("INFORME SUAS NOTAS: ", nome[i]);
+        printf("INFORME AS 3 NOTAS DO ALUNO(A)(separadas por espaço): ", nome[i]);
+        somanotas = 0; 
        
         for (j = 0; j < 3; j++) {
             scanf("%f", &notas[i][j]);
             somanotas += notas[i][j];
-            somanotas = 0; 
         }
         media[i] = somanotas / 3;
     }
@@ -26,9 +28,15 @@ int main() {
     printf("\nExibindo dados do aluno... \n");
 
     for (i = 0; i < 5; i++) {
-        printf("\nNome do aluno: %s \n", nome[i]);
-        printf("Idade: %d \n", idade[i]);
-        printf("Notas: %.1f, %.1f, %.1f \n", notas[i][0], notas[i][1], notas[i][2]);
+        printf("\nALUNO %d\n", i + 1);
+        printf("Nome: %s\n", nome[i]);
+        printf("Idade: %d\n", idade[i]);
+        printf("Notas: ");
+        for (j = 0; j < 3; j++) {
+            printf("%.1f ", notas[i][j]);
+        }
+        printf("\n");
+
         printf("Média: %.2f \n", media[i]);
 
         if (media[i] >= 7) {
