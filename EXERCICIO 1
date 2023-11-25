@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    char nome[5][50];
+    int idade[5];
+    int peso[5];
+    int altura[5];
+
+  
+    int alturaMaxima = 0, alturaMinima = INT_MAX;
+    int pesoMaximo = 0, pesoMinimo = INT_MAX;
+    int idadeMaxima = 0, idadeMinima = INT_MAX;
+
+    
+    for (int i = 0; i < 5; i++) {
+        printf("INFORME O SEU NOME: ", i + 1);
+        scanf("%s", nome[i]);
+
+        printf("INFORME A SUA IDADE: ", nome[i]);
+        scanf("%d", &idade[i]);
+
+        printf("INFORME SEU PESO EM (EM KG): ", nome[i]);
+        scanf("%d", &peso[i]);
+
+        printf("INFORME A SUA ALTURA (EM METROS): ", nome[i]);
+        scanf("%d", &altura[i]);
+
+        
+        switch (altura[i]) {
+            case 0:
+                alturaMinima = altura[i];
+                break;
+            case INT_MAX: 
+                alturaMaxima = altura[i];
+                break;
+            default:
+                if (altura[i] > alturaMaxima) {
+                    alturaMaxima = altura[i];
+                }
+                if (altura[i] < alturaMinima) {
+                    alturaMinima = altura[i];
+                }
+        }
+
+        switch (peso[i]) {
+            case 0: 
+                pesoMinimo = peso[i];
+                break;
+            case INT_MAX: 
+                pesoMaximo = peso[i];
+                break;
+            default:
+                if (peso[i] > pesoMaximo) {
+                    pesoMaximo = peso[i];
+                }
+                if (peso[i] < pesoMinimo) {
+                    pesoMinimo = peso[i];
+                }
+        }
+
+        switch (idade[i]) {
+            case 0:
+                idadeMinima = idade[i];
+                break;
+            case INT_MAX: 
+                idadeMaxima = idade[i];
+                break;
+            default:
+                if (idade[i] > idadeMaxima) {
+                    idadeMaxima = idade[i];
+                }
+                if (idade[i] < idadeMinima) {
+                    idadeMinima = idade[i];
+                }
+        }
+    }
+
+   
+    printf("\nInformações sobre as pessoas:\n");
+
+    printf("\nNome e altura da pessoa mais alta: %s, %.2f metros\n", nome[alturaMaxima], alturaMaxima / 100.0);
+    printf("Nome e altura da pessoa mais baixa: %s, %.2f metros\n", nome[alturaMinima], alturaMinima / 100.0);
+
+    printf("\nNome e peso da pessoa com maior peso: %s, %.2f kg\n", nome[pesoMaximo], pesoMaximo / 100.0);
+    printf("Nome e peso da pessoa com menor peso: %s, %.2f kg\n", nome[pesoMinimo], pesoMinimo / 100.0);
+
+    printf("\nNome e idade da pessoa mais velha: %s, %d anos\n", nome[idadeMaxima], idadeMaxima);
+    printf("Nome e idade da pessoa mais nova: %s, %d anos\n", nome[idadeMinima], idadeMinima);
+
+    return 0;
+}
+
