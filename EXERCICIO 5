@@ -1,32 +1,4 @@
-#include <stdio.h>
-#include <limits.h>
 
-int main() {
-    char nome[5][50];
-    int idade[5];
-    int peso[5];
-    int altura[5];
-
-  
-    int alturaMaxima = 0, alturaMinima = INT_MAX;
-    int pesoMaximo = 0, pesoMinimo = INT_MAX;
-    int idadeMaxima = 0, idadeMinima = INT_MAX;
-
-    
-    for (int i = 0; i < 5; i++) {
-        printf("INFORME O SEU NOME: ", i + 1);
-        scanf("%s", nome[i]);
-
-        printf("INFORME A SUA IDADE: ", nome[i]);
-        scanf("%d", &idade[i]);
-
-        printf("INFORME SEU PESO EM (EM KG): ", nome[i]);
-        scanf("%d", &peso[i]);
-
-        printf("INFORME A SUA ALTURA (EM METROS): ", nome[i]);
-        scanf("%d", &altura[i]);
-
-        
         switch (altura[i]) {
             case 0:
                 alturaMinima = altura[i];
